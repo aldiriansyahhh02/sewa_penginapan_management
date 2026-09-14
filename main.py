@@ -112,7 +112,7 @@ def ubah_kamar():
         return
     
     try:
-        id_kamar = int(input("\n Masukkan ID Kamar yang ingin diubah: "))
+        id_kamar = int(input("\nMasukkan ID Kamar yang ingin diubah: "))
     except ValueError:
         print("ID Kamar harus berupa angka!")
         return
@@ -149,8 +149,23 @@ def ubah_kamar():
     print("Kembali ke menu utama")
 
 # Fungsi menghapus kamar
-def hapus_kamar():
-   pass
+def hapus_kamar():            
+    print("\n--- Daftar Kamar Saat ini ---")
+    for f in data_kamar:
+        print(f"ID: {f['id']} | {f['tipe']}")
+            
+    id_kamar = int(input("\nMasukkan ID kamar yang ingin dihapus: "))
+        
+    ditemukan = False
+    for f in data_kamar:
+        if f["id"] == id_kamar:
+            data_kamar.remove(f)
+            print(f"\n Film dengan ID {id_kamar} berhasil dihapus!")
+            ditemukan = True
+            break
+                
+    if not ditemukan:
+        print(f"\n Kamar dengan ID {id_kamar} tidak ditemukan!")
 
 # /===== Main Program =====/
 # Program Utama
@@ -167,7 +182,19 @@ while True:
     pilih_menu = int(input("Pilih Menu: "))
 
     if pilih_menu == 1:
-        tambah_kamar()
+        print("==== Menu tambah kamar ====")
+        print("1. Lanjut ke tambah kamar ")
+        print("2. Kembali ke menu utama")
+        
+        while True:
+            sub_menu1 = int(input("Apakah anda ingin melanjutkan? (input 1 atau 2): "))
+            if sub_menu1 == 1:
+                tambah_kamar()
+                break
+            elif sub_menu1 == 2:
+                break
+            else:
+                print("Masukkan input yang sesuai")
     elif pilih_menu == 2:
         print("==== Menu tampilkan kamar ====")
         print("1. Lanjut ke tampilkan kamar ")
@@ -183,11 +210,40 @@ while True:
             else:
                 print("Masukkan input yang sesuai")
     elif pilih_menu == 3:
-        ubah_kamar()
+        print("==== Menu ubah kamar ====")
+        print("1. Lanjut ke ubah data kamar ")
+        print("2. Kembali ke menu utama")
+                
+        while True:
+            sub_menu3 = int(input("Apakah anda ingin melanjutkan? (input 1 atau 2): "))
+            if sub_menu3 == 1:
+                ubah_kamar()
+                break
+            elif sub_menu3 == 2:
+                break
+            else:
+                print("Masukkan input yang sesuai")
     elif pilih_menu == 4:
-        pass
+        print("\n=== MENU HAPUS KAMAR ===")
+        print("1. Lanjutkan Proses Hapus Kamar")
+        print("2. Kembali ke Menu Utama")
+
+        while True:
+            sub_menu4 = int(input("Apakah anda ingin melanjutkan? (input 1 atau 2): "))
+            if sub_menu4 == 1:
+                hapus_kamar()
+                break
+            elif sub_menu4 == 2:
+                break
+            else:
+                print("Masukkan input yang sesuai")
     elif pilih_menu == 5:
-        print("Terima kasih telah menggunakan program ini, Sampai jumpa!")
-        break
+        while True:
+            sub_menu5 = input("Apakah anda yakin ingin keluar dari program?: ")
+            if sub_menu5 == "tidak":
+                continue
+            elif sub_menu5 == "ya":
+                print("Terima kasih telah menggunakan program ini, Sampai jumpa!")
+                break
     else:
         print("Input salah ! Masukkan input yang benar")
