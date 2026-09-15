@@ -207,9 +207,9 @@ def hapus_kamar():
 # /===== Main Program =====/
 # Program Utama
 while True:
-    print("\n=============================")
+    print("\n================================")
     print(" SISTEM KELOLA KAMAR PENGINAPAN")
-    print("\n=============================")
+    print("\n================================")
     print("1. Tambahkan Kamar")
     print("2. Tampilkan Semua Kamar")
     print("3. Ubah Data Kamar")
@@ -290,6 +290,8 @@ while True:
             elif sub_menu5 == 1:
                 print("Terima kasih telah menggunakan program ini, Sampai jumpa!")
                 sys.exit()
+            elif sub_menu5 != 1 and sub_menu5 !=2:
+                print("Input Salah! Silahkan coba lagi")
         
     else:
         print("Input salah! Masukkan input yang benar")
