@@ -3,17 +3,42 @@
 # ===================================
 # Developed by. Muhammad Aldi Riansyah
 # JCDSBSD - [34]
+import sys
 
 
 # /************************************/
 
 # /===== Data Kamar =====/
 data_kamar = [
-    {"id": 1, "tipe": "standar", "harga": 450000, "kasur": "single", "status":"tersedia"},
-    {"id": 2, "tipe": "standar", "harga": 450000, "kasur": "single", "status":"tersedia"},
-    {"id": 3, "tipe": "standar", "harga": 450000, "kasur": "double", "status":"terisi"},
-    {"id": 4, "tipe": "deluxe", "harga": 550000, "kasur": "double", "status":"terisi"},
-    {"id": 5, "tipe": "vip", "harga": 750000, "kasur": "double", "status":"tersedia"}
+    {"id": 1, 
+     "tipe": "standar", 
+     "harga": 450000, 
+     "kasur": "single", 
+     "status":"tersedia"},
+
+    {"id": 2, 
+     "tipe": "standar", 
+     "harga": 450000, 
+     "kasur": "single", 
+     "status":"tersedia"},
+
+    {"id": 3, 
+     "tipe": "standar", 
+     "harga": 450000, 
+     "kasur": "double", 
+     "status":"terisi"},
+
+    {"id": 4, "tipe": 
+     "deluxe", 
+     "harga": 550000, 
+     "kasur": "double", 
+     "status":"terisi"},
+
+    {"id": 5, 
+     "tipe": "vip", 
+     "harga": 750000, 
+     "kasur": "double", 
+     "status":"tersedia"}
 ]
 
 id_terakhir = 5
@@ -24,7 +49,12 @@ def tambah_kamar():
     global id_terakhir
     print("--- Tambah Kamar Baru ---")
     tipe = input("Masukkan tipe kamar: ")
-    harga = input("Masukkan harga kamar: ")
+    while True:
+        try:
+            harga = int(input("Masukkan harga kamar: "))
+            break
+        except ValueError:
+            print("Input hanya boleh berupa angka! Silakan coba lagi.")
 
     while True:
         try:
@@ -121,7 +151,14 @@ def ubah_kamar():
         if f["id"] == id_kamar:
             print(f"\nMengubah kamar: {f['tipe']}")
             f["tipe"] = input("Masukkan tipe kamar baru: ")
-            f["harga"] = int(input("Masukkan harga kamar Baru: "))
+
+            while True:
+                try:
+                    f["harga"] = int(input("Masukkan harga kamar Baru: "))
+                    break
+                except ValueError:
+                    print("Pesan: Input hanya boleh berupa angka! Silakan coba lagi.")
+
             while True:
                 try:
                     f["kasur"] = input("Masukkan tipe kasur kamar baru (single/double): ")
@@ -134,7 +171,7 @@ def ubah_kamar():
 
             while True:
                 try:
-                    f["status"] = input("Masukkan status kamar saat ini: ")
+                    f["status"] = input("Masukkan status kamar saat ini (tersedia/disewa): ")
                     if f["status"] != "tersedia" and f["status"] != "disewa":
                         print("Status hanya terdiri dari tersedia atau disewa")
                         continue
@@ -177,7 +214,7 @@ while True:
     print("2. Tampilkan Semua Kamar")
     print("3. Ubah Data Kamar")
     print("4. Hapus Kamar")
-    print("5. keluar")
+    print("5. Keluar")
 
     pilih_menu = int(input("Pilih Menu: "))
 
@@ -192,6 +229,7 @@ while True:
                 tambah_kamar()
                 break
             elif sub_menu1 == 2:
+                print("\nKembali ke menu utama...\n")
                 break
             else:
                 print("Masukkan input yang sesuai")
@@ -206,6 +244,7 @@ while True:
                 tampilkan_kamar()
                 break
             elif sub_menu2 == 2:
+                print("\nKembali ke menu utama...\n")
                 break
             else:
                 print("Masukkan input yang sesuai")
@@ -220,6 +259,7 @@ while True:
                 ubah_kamar()
                 break
             elif sub_menu3 == 2:
+                print("\nKembali ke menu utama...\n")
                 break
             else:
                 print("Masukkan input yang sesuai")
@@ -234,16 +274,22 @@ while True:
                 hapus_kamar()
                 break
             elif sub_menu4 == 2:
+                print("\nKembali ke menu utama...\n")
                 break
             else:
                 print("Masukkan input yang sesuai")
     elif pilih_menu == 5:
+        print("==== Menu konfirmasi keluar Program ====")
+        print("1. Keluar dari Program")
+        print("2. Kembali ke menu utama")
         while True:
-            sub_menu5 = input("Apakah anda yakin ingin keluar dari program?: ")
-            if sub_menu5 == "tidak":
-                continue
-            elif sub_menu5 == "ya":
-                print("Terima kasih telah menggunakan program ini, Sampai jumpa!")
+            sub_menu5 = int(input("Apakah anda yakin ingin keluar dari program? (1 atau 2): "))
+            if sub_menu5 == 2:
+                print("\nKembali ke menu utama...\n")
                 break
+            elif sub_menu5 == 1:
+                print("Terima kasih telah menggunakan program ini, Sampai jumpa!")
+                sys.exit()
+        
     else:
-        print("Input salah ! Masukkan input yang benar")
+        print("Input salah! Masukkan input yang benar")
