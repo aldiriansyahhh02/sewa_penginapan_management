@@ -1,60 +1,47 @@
-# Python CRUD Application for [Business Domain]
+# Python CRUD Application for Rent accommodation management (Manajemen Sewa Penginapan)
 
-A comprehensive Python application for managing [Data Entity] data with Create, Read, Update, and Delete (CRUD) operations.
+A comprehensive Python application for managing Rent accommodation(Manajemen Sewa Penginapan) data with Create, Read, Update, and Delete (CRUD) operations.
 
 ## Business Understanding
 
-This project caters to the [Industry/Business Domain] industry, specifically addressing the need to manage [Data Entity] data efficiently. [Data Entity] plays a crucial role in [Explain the importance of data entity in business processes].
+This project caters to the hospitality industry, specifically addressing the need to manage Rent accommodation data efficiently. Rent accommodation Management plays a crucial role in CRUD information system to digitize all room data, price, bed type and room availability. With this system, accomodation owners and staff can monitor room occupancy status from the reception desk.
 
 **Benefits:**
 
-* Improved data accuracy and consistency
-* Streamlined data management processes
-* Enhanced decision-making through readily available data
-* ... (List additional benefits relevant to the business)
+* Staff can directly input a new room and it's availability
+* Staff can directly see the availability of the room and the price
+* Staff can update the room data if there is some change 
+* Staff can delete the room if it's not available anymore
 
 **Target Users:**
 
-This application is designed for [Target Users] (e.g., sales representatives, inventory managers, customer support agents) within the organization to facilitate their [Tasks/Activities] related to [Data Entity].
+This application is designed for hotel staff within the organization to facilitate their room management related to Rent Accomodation Management.
 
 ## Features
 
 * **Create:**
-    * Add new [Data Entity] entries with essential details like [List relevant fields].
-    * Implement validation rules to ensure data integrity (if applicable, e.g., unique identifiers, data type checks).
+    * Add new room entries with essential details like room-type, price, bed-type and room availability.
 * **Read:**
-    * Search and retrieve specific [Data Entity] records by applying filters based on [Searchable fields].
-    * Display comprehensive information for each [Data Entity] in a user-friendly format.
-    * Integrate pagination and sorting capabilities for large datasets (if applicable).
+    * Search and retrieve specific room records by applying filters based on room-type, bed-type and room availability.
+    * Display comprehensive information for each room in a user-friendly format.
 * **Update:**
-    * Modify existing [Data Entity] data to reflect changes in [Attributes/Properties].
+    * Modify existing room data to reflect changes in room-type, price, bed-type and room availability.
     * Provide clear confirmation or error messages based on update success or failure.
 * **Delete:**
-    * Allow for the removal of unwanted [Data Entity] records with appropriate authorization checks (if applicable).
-    * Implement soft delete functionality to prevent permanent data loss (optional, depending on business needs).
-    * Consider offering data archiving capabilities (optional).
-* **Security:**
-    * Implement user authentication and authorization mechanisms (if sensitive data is involved) to control access to different CRUD operations.
-    * ... (Specify additional security features as needed)
+    * Allow for the removal of un-use rooms records with appropriate authorization checks.
 * **Reporting:**
-    * Generate reports or summaries based on [Data Entity] data to support [Business Functions] (optional).
-    * Export data in various formats (e.g., CSV, Excel) for further analysis (optional).
+    * Generate reports or summaries based on room data to support hospitality industry.
 
 ## Installation
 
 1. **Prerequisites:**
-    * Python version (specify the required version)
-    * Additional dependencies (list any required packages)
+    * Python version 3.14.5
 
 2. **Installation:**
     ```bash
-    git clone https://github.com/<your-username>/<your-repo-name>.git
-    cd <your-repo-name>
-    pip install -r requirements.txt  # If using a requirements.txt file
+    git clone https://github.com/aldiriansyahhh02/sewa_penginapan_management.git
+    cd sewa_penginapan_management
     ```
-
-3. **Database Setup (if applicable):**
-    Follow specific instructions for configuring your database connection, aligning with the business's chosen database management system.
 
 ## Usage
 
@@ -64,17 +51,16 @@ This application is designed for [Target Users] (e.g., sales representatives, in
     ```
 
 2. **CRUD Operations:**
-    * **Create:** Add a new [Data Entity] record, for example, a new customer in a customer management system, providing details like name, contact information, and preferences.
-    * **Read:** Search and retrieve customer information by name, ID, or other relevant criteria.
-    * **Update:** Modify customer details, such as updating their address or contact details.
-    * **Delete:** Remove a customer record from the system (with appropriate authorization, if applicable).
+    * **Create:** Add a new room record with a detail based on room-type, price, bed-type and room availability.
+    * **Read:** Search and retrieve room information by room-type, bed-type, or room availability.
+    * **Update:** Modify room details, such as updating the whole room data.
+    * **Delete:** Remove an un-used room if it's possible.
 
 ## Data Model
 This project utilizes a [Data Structure] (e.g., relational database, JSON documents) to represent [Data Entity] data. The following fields are typically stored:
-   * [Field 1]: (Data type) - Description of the field's purpose in the business context.
-   * [Field 2]: (Data type) - Description of the field's purpose in the business context.
-   * ... (List all relevant fields)
+   * [data_kamar]: (List) - data_kamar serve as a database to store all existing room, allowing the data to be easily added, searched, modified or deleted.
+   * [kamar_baru]: (Dictionary) - kamar_baru serve as an identification card that records the complete details of a specific room (ID, room-type, price, bed-type, and room availability), ensuring the data is neatly organized and kept distinct.
 
 ## Contributing
-We welcome contributions to this project! Please feel free to open a pull request, sent to [your_email] or submit an issue if you encounter any problems or have suggestions for improvements.
+We welcome contributions to this project! Please feel free to open a pull request, sent to m.aldiriansyahhh2@gmail.com or submit an issue if you encounter any problems or have suggestions for improvements.
 
